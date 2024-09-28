@@ -151,8 +151,9 @@ def pickleSumOfSquares(N, folderName='primeData'):
     primeSOS.picke : dict : Keys are primes, values 2-tuples (dtype=int).
     
     """
-    SOSpr = {p:sumOfSquares(int(p)) for p in genPrimes(N) if p%4 != 3}
     path_ = lambda fileName: f'{folderName}/{fileName}.pickle'
+    prBank = list(map(int, genPrimes(N)))
+    SOSpr = {p:sumOfSquares(int(p)) for p in prBank if p%4 != 3}
     
     with open(path_('primeSOS'), 'wb') as f: 
         pickle.dump(SOSpr, f, pickle.HIGHEST_PROTOCOL)
