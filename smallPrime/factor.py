@@ -59,7 +59,6 @@ def primeDecomposition(N):
             q, r = divmod(N, pr)
 
         if N == 1:
-            certificate = True
             break
 
     return primeDecomp
