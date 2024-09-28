@@ -148,12 +148,12 @@ def pickleSumOfSquares(N, folderName='primeData'):
     
     Writes
     ------
-    primeSOS.picke : dict : Keys are primes, values 2-tuples (dtype=int).
+    primeSOS.pickle : dict : Keys are primes, values 2-tuples (dtype=int).
     
     """
     path_ = lambda fileName: f'{folderName}/{fileName}.pickle'
     prBank = list(map(int, genPrimes(N)))
-    SOSpr = {p:sumOfSquares(int(p)) for p in prBank if p%4 != 3}
+    SOSpr = {p:sumOfSquares(p for p in prBank if p%4 != 3}
     
     with open(path_('primeSOS'), 'wb') as f: 
         pickle.dump(SOSpr, f, pickle.HIGHEST_PROTOCOL)
@@ -171,7 +171,7 @@ def pickleAll(N, folderName='primeData'):
     primeArray.pickle : array : Ordered primes from 2 to N-1 (dtype=np.int64).
     primeList.pickle  : list  : Ordered primes from 2 to N-1 (dtype=int).
     primeSet.pickle   : set   : Set of primes for easy look-up (dtype=int).
-    primeSOS.picke : dict : Keys are primes, values 2-tuples (dtype=int).
+    primeSOS.pickle : dict : Keys are primes, values 2-tuples (dtype=int).
     
     """
     path_ = lambda fileName: f'{folderName}/{fileName}.pickle'
